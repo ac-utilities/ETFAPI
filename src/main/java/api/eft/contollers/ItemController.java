@@ -1,6 +1,7 @@
 package api.eft.contollers;
 
 import data.RetrieveData;
+import data.objects.Details;
 import data.objects.ETFObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,5 +22,12 @@ public class ItemController {
     public ETFObject item(@RequestParam(value="name") String id ){
         RetrieveData retrieveData = new RetrieveData(id);
         return retrieveData.getData();
+    }
+
+    @GetMapping("/item/details")
+    @ApiOperation(value = "getItem", response = Details.class)
+    public Details itemDetails(@RequestParam(value="name") String id ){
+        RetrieveData retrieveData = new RetrieveData(id);
+        return retrieveData.getData().getDetails();
     }
 }
