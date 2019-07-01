@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 @RestController
 @RequestMapping("etf")
 @Api(value = "ETF Item")
@@ -29,5 +32,12 @@ public class ItemController {
     public Details itemDetails(@RequestParam(value="name") String id ){
         RetrieveData retrieveData = new RetrieveData(id);
         return retrieveData.getData().getDetails();
+    }
+
+    @GetMapping("/item/slots")
+    @ApiOperation(value = "getItem", response = HashMap.class)
+    public HashMap<String, ArrayList> itemSlots(@RequestParam(value="name") String id ){
+        RetrieveData retrieveData = new RetrieveData(id);
+        return retrieveData.getData().getSlots();
     }
 }

@@ -10,9 +10,6 @@ public class ETFObject {
 
     private Details details;
     private HashMap<String, ArrayList> slots;
-
-
-
     private ArrayList compatibility;
 
     public HashMap<String, ArrayList> getSlots() {
