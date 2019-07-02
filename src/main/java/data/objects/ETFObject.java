@@ -25,6 +25,7 @@ public class ETFObject {
         slots = pairing;
         compatibility = setCompatibility(pairing);
         mapAllDetails(detail);
+        details.setSlotCount(pairing.size());
         mapPairing(pairing);
     }
     public ArrayList getCompatibility() {

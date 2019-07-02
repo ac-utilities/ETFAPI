@@ -6,6 +6,7 @@ public class Details {
     public String recoil;
     public String ergonomics;
     public String accuracy;
+    public int slotCount;
 
     public Details() {
         this.title = "title";
@@ -13,6 +14,7 @@ public class Details {
         this.recoil = "recoil";
         this.ergonomics = "ergonomics";
         this.accuracy = "accuracy";
+        this.slotCount = -1;
     }
 
     public void setTitle(String title) {
@@ -29,6 +31,10 @@ public class Details {
 
     public void setErgonomics(String ergonomics) {
         this.ergonomics = ergonomics;
+    }
+
+    public void setSlotCount(int slotCount) {
+        this.slotCount = slotCount;
     }
 
 }
