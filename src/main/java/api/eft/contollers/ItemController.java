@@ -40,4 +40,12 @@ public class ItemController {
         RetrieveData retrieveData = new RetrieveData(id);
         return retrieveData.getData().getSlots();
     }
+
+    @GetMapping("/item/All")
+    @ApiOperation(value = "getAll", response = ArrayList.class)
+    public ArrayList allItems(){
+        CacheFileName cacheFileName = new CacheFileName();
+
+        return cacheFileName.getFileNames();
+    }
 }
