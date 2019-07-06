@@ -15,7 +15,10 @@ public class CacheFileName  {
         File folder = new File("Cache/");
         File[] listOfFiles = folder.listFiles();
         for(File file : listOfFiles) {
-            arrayList.add(file.getName());
+            String name = file.getName();
+             name = name.replace(".json", "");
+            arrayList.add(name);
+
         }
         return arrayList;
     }
