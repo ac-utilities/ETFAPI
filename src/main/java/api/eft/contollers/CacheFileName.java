@@ -12,7 +12,7 @@ public class CacheFileName  {
     }
 
     public ArrayList<String> getFileNames(){
-        File folder = new File("Cache\\");
+        File folder = new File("Cache/");
         File[] listOfFiles = folder.listFiles();
         for(File file : listOfFiles) {
             arrayList.add(file.getName());

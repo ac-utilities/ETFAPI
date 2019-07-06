@@ -41,7 +41,7 @@ public class ItemController {
         return retrieveData.getData().getSlots();
     }
 
-    @GetMapping("/item/All")
+    @GetMapping("/item/all")
     @ApiOperation(value = "getAll", response = ArrayList.class)
     public ArrayList allItems(){
         CacheFileName cacheFileName = new CacheFileName();
