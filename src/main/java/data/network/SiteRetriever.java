@@ -1,5 +1,9 @@
 package data.network;
 
+import data.Utility;
+import data.cache.CacheRetriever;
+import helper.BaseLogger;
+
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.EOFException;
@@ -8,8 +12,10 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class SiteRetriever {
+    static private BaseLogger logger = new BaseLogger(SiteRetriever.class);
     private static String HOST = "https://escapefromtarkov.gamepedia.com/";
 
     private String url;
@@ -58,7 +64,11 @@ public class SiteRetriever {
                 }
             }
         } catch (EOFException e) {
-            System.out.println("Loaded From :" + HOST.concat(url));
+            Properties properties = new Properties();
+            properties.put("item", "loaded");
+            properties.put("site", HOST.concat(url));
+
+            logger.addEvent(properties);
         } catch (Exception e) {
             e.printStackTrace();
         }

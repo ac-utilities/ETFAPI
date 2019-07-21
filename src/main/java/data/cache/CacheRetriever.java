@@ -2,6 +2,7 @@ package data.cache;
 
 import data.Utility;
 import data.json.JsonElement;
+import helper.BaseLogger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -10,12 +11,10 @@ import org.json.simple.parser.ParseException;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class CacheRetriever {
+    static private BaseLogger logger = new BaseLogger(CacheRetriever.class);
     private String key;
 
     public HashMap<String, ArrayList> getPairing() {
@@ -64,7 +63,11 @@ public class CacheRetriever {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println("Item loaded from : " + Utility.getFileName(this.key));
+        Properties properties = new Properties();
+        properties.put("item", "loaded");
+        properties.put("filename", Utility.getFileName(this.key));
+
+        logger.addEvent(properties);
         return true;
     }
 
